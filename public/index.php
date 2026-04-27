@@ -1,13 +1,17 @@
 <?php 
 
 require '../helpers.php';
+require basePath('Database.php');
+$config = require basePath('config/db.php');
 
-$routes = [
-    '/' => 'controllers/home.php',
-    '/listings' => 'controllers/listings/index.php',
-    '/listings/create' => 'controllers/listings/create.php',
-    '404' => 'controllers/error/404.php'
-];
+$db = new Database($config);
+require basePath ('Router.php');
+
+$router = new Router();
+
+$routes = require basePath('routes.php');
+$uri = $_SERVER['REQUEST_URI'];
+$method = $_SERVER['REQUEST_METHOD'];
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
