@@ -26,4 +26,23 @@ class Router {
      public function delete($uri, $controller) {
         $this->registerRoutes('DELETE', $uri, $controller);
     }
+
+    public function error($httpCode = 404) 
+    {
+        http_response_code($httpCode);
+        loadView("error/{$httpCode}");
+        exit;
+    }
+
+    public function route($uri, $method) {
+        foreach ($this->routes as $route) {
+            if ($route['uri'] === $uri 
+            && $route['method'] === $method) {
+                require basePath($route['controller']);
+                return;
+            }
+        }
+
+        $this->error(404);
+    }
 }
