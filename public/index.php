@@ -1,21 +1,23 @@
 <?php 
+session_start();
 
+require __DIR__ . '/../vendor/autoload.php';
 require '../helpers.php';
-require basePath('Database.php');
-$config = require basePath('config/db.php');
 
-$db = new Database($config);
+use Framework\Router;
 
-require basePath ('Router.php');
 
+//Initiate Router
 $router = new Router();
 
+//Get routes
 $routes = require basePath('routes.php');
 
-$uri = $_SERVER['REQUEST_URI'];
-$method = $_SERVER['REQUEST_METHOD'];
+//Get current URI and HTTP method
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-$router ->route($uri, $method);
+
+$router ->route($uri);
 
 
 ?>

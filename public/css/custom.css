@@ -12,7 +12,7 @@
    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 */
 
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 
 /* ----------------------------------------------------------------
@@ -24,19 +24,36 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --color-header:       #203562;   /* Header at navigation bar */
-  --color-logo:         #FFFFFF;   /* Kulay ng logo */
-  --color-accent:       #1089FF;   /* "Post a Job" button at mga highlight */
-  --color-page-bg:      #FAFAFA;   /* Background ng buong page */
-  --color-card-bg:      #FFFFFF;   /* Background ng mga card/box */
-  --color-heading:      #FFFFFF;   /* Kulay ng mga title at heading */
-  --color-heading-alt:  #203562;   /* Alternatibong kulay para sa mga heading */
-  --color-body-text:    #3E588F;   /* Regular na body text */
-  --color-link:         #FAFAFA;   /* Mga clickable na links */
-  --color-tag-bg:       #FFFFFF;   /* Background ng mga tag/badge */
-  --color-tag-text:     #000000;   /* Text ng mga tag/badge */
-  --color-footer:       #000000;   /* Footer background */
-  --showcase-overlay:   rgba(0, 0, 0, 0.5); /* Hero banner overlay
+  --color-header: #1a2f5e;
+  /* Header at navigation bar */
+  --color-logo: #FFFFFF;
+  /* Kulay ng logo */
+  --color-accent: #2563eb;
+  /* "Post a Job" button at mga highlight */
+  --color-page-bg: #f8fafc;
+  /* Background ng buong page */
+  --color-card-bg: #FFFFFF;
+  /* Background ng mga card/box */
+  --color-heading: #FFFFFF;
+  /* Kulay ng heading */
+  --color-title: #1e293b;
+  /* Kulay ng title */
+  --color-heading-alt: #1a2f5e;
+  /* Alternatibong kulay para sa mga heading */
+  --color-body-text: #475569;
+  /* Regular na body text */
+  --color-link: #FAFAFA;
+  /* Mga clickable na links */
+  --color-show-all-btn: #2563eb;
+  /* Kulay ng "Show All Jobs" button */
+  --color-tag-bg: #FFFFFF;
+  /* Background ng mga tag/badge */
+  --color-tag-text: #1e293b;
+  /* Text ng mga tag/badge */
+  --color-footer: #111827;
+  /* Footer background */
+  --showcase-overlay: rgba(0, 0, 0, 0.52);
+  /* Hero banner overlay
                                                0.0 = transparent
                                                0.9 = halos itim */
 }
@@ -57,8 +74,10 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --font-heading: 'Georgia', serif;      /* Para sa mga title at heading */
-  --font-body:    'Arial', sans-serif;   /* Para sa regular na text */
+  --font-heading: 'Inter', 'Georgia', serif;
+  /* Para sa mga title at heading */
+  --font-body: 'Inter', 'Arial', sans-serif;
+  /* Para sa regular na text */
 }
 
 
@@ -80,7 +99,7 @@
 
 :root {
   --border-radius: 8px;
-  --card-shadow:   0 2px 8px rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -95,17 +114,35 @@ body {
   font-family: var(--font-body) !important;
   background-color: var(--color-page-bg) !important;
   color: var(--color-body-text) !important;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading) !important;
+  color: var(--color-title) !important;
+}
+
+/* Headings inside dark sections stay white */
+header h1,
+header h2,
+.showcase h2,
+.bg-blue-900 h2,
+.bg-blue-800 h2,
+.bg-blue-800 h3 {
   color: var(--color-heading) !important;
 }
-.logo{
+
+.logo {
   color: var(--color-logo) !important;
 }
+
 a {
-  color: var(--color-link) !important;
+  color: var(--color-link);
 }
 
 header {
@@ -124,6 +161,10 @@ header {
   color: var(--color-heading-alt) !important;
 }
 
+.title-color {
+  color: var(--color-title) !important;
+}
+
 .bg-blue-900,
 .bg-blue-800 {
   background-color: var(--color-header) !important;
@@ -131,6 +172,7 @@ header {
 
 .bg-yellow-500 {
   background-color: var(--color-accent) !important;
+  color: #fff !important;
 }
 
 .text-yellow-500 {
@@ -146,10 +188,17 @@ header {
   background-color: var(--color-accent) !important;
 }
 
+/* Job cards */
 .bg-white {
   background-color: var(--color-card-bg) !important;
   border-radius: var(--border-radius) !important;
   box-shadow: var(--card-shadow) !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.bg-white:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+  transform: translateY(-2px);
 }
 
 .bg-indigo-100 {
@@ -164,15 +213,71 @@ header {
 .text-blue-700,
 .text-blue-500,
 .text-blue-900 {
-  color: var(--color-link) !important;
+  color: var(--color-heading-alt) !important;
 }
 
 button,
 .rounded,
-.rounded-lg,
-.rounded-full {
+.rounded-lg {
   border-radius: var(--border-radius) !important;
 }
+
+.post-job-btn {
+  background-color: #0d9488 !important;
+  color: #fff !important;
+  font-weight: 600;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-job-btn:hover {
+  background-color: #0f766e !important;
+  color: #fff !important;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.rounded-full {
+  border-radius: 9999px !important;
+}
+
+/* "Recent Jobs" heading */
+.recent-jobs-heading {
+  color: var(--color-heading-alt) !important;
+  border-color: #e2e8f0 !important;
+  font-size: 1.6rem !important;
+  letter-spacing: -0.01em;
+}
+
+/* Details button */
+a.bg-indigo-100 {
+  background-color: #f1f5f9 !important;
+  color: var(--color-accent) !important;
+  border-color: #e2e8f0 !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+
+a.bg-indigo-100:hover {
+  background-color: var(--color-accent) !important;
+  color: #fff !important;
+  text-decoration: none;
+  opacity: 1;
+}
+
+
+
+.show-all-btn {
+  color: var(--color-show-all-btn) !important;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.show-all-btn:hover {
+  opacity: 0.75;
+  text-decoration: none;
+}
+
 .apply-btn {
   background-color: var(--color-accent) !important;
   color: var(--color-link) !important;
@@ -183,34 +288,216 @@ button,
   background-color: var(--showcase-overlay) !important;
 }
 
-footer,
 .bg-indigo-900 {
   background-color: var(--color-footer) !important;
 }
 
 .bg-gray-100 {
-  background-color: var(--color-page-bg) !important;
+  background-color: #f1f5f9 !important;
+  border-radius: 6px !important;
+}
+
+/* Meta list inside job cards (Salary, Location, Tags) */
+.card-meta-list {
+  list-style: none;
+  padding: 0.85rem 1rem !important;
+  font-size: 0.825rem;
+}
+
+.card-meta-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.3rem 0;
+}
+
+.card-meta-list li strong {
+  flex-shrink: 0;
+  min-width: 62px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.card-meta-list li>span {
+  color: var(--color-body-text);
+  line-height: 1.5;
 }
 
 
 /* ----------------------------------------------------------------
    ADVANCED ZONE — Para sa gustong mag-explore pa!
    ----------------------------------------------------------------
-   Alisin ang /* at */ para i-activate ang isang rule.
-   ---------------------------------------------------------------- */
 
 /* Hover effect sa mga link */
-/* a:hover {
+a:hover {
   text-decoration: underline;
   opacity: 0.85;
-} */
+}
+
+/* Walang underline sa footer links */
+footer a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
 
 /* Kulay ng input fields */
-/* input, select, textarea {
-  border-color: var(--color-link) !important;
+input,
+select,
+textarea {
+  border-color: #cbd5e1 !important;
   border-radius: var(--border-radius) !important;
-} */
+}
 
 /* Kulay ng success badge */
-/* .bg-green-100 { background-color: #d1fae5 !important; }
-   .text-green-800 { color: #065f46 !important; } */
+.bg-green-100 {
+  background-color: #d1fae5 !important;
+}
+
+.text-green-800 {
+  color: #065f46 !important;
+}
+
+/* Custom spacing para sa banners kapag naka-zoom o full screen */
+.banner-padding {
+  padding: 0 2rem !important;
+}
+
+/* Custom spacing para sa job listings container */
+.container-padding {
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
+}
+
+/* Showcase search input — active/focus highlight */
+.showcase input:focus {
+  border: 2px solid #2563eb !important;
+  outline: none !important;
+}
+
+/* Showcase search button — hover effect */
+.showcase button:hover {
+  background-color: #1d4ed8 !important;
+
+}
+
+/* ----------------------------------------------------------------
+   SHOWCASE SEARCH BAR — Pill-style layout
+   ---------------------------------------------------------------- */
+
+.showcase-search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.showcase-search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+  padding: 6px 6px 6px 8px;
+  gap: 0;
+  max-width: 700px;
+  width: 100%;
+}
+
+.showcase-search-field {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 8px;
+  min-width: 0;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: text;
+}
+
+.showcase-search-field:focus-within {
+  border-color: #2563eb;
+}
+
+.showcase-search-icon {
+  color: #94a3b8;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.showcase-search-input {
+  border: none !important;
+  background: transparent !important;
+  font-size: 0.95rem;
+  color: #1e293b !important;
+  width: 100%;
+  padding: 6px 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.showcase-search-input::placeholder {
+  color: #94a3b8;
+}
+
+.showcase-search-divider {
+  width: 1px;
+  height: 28px;
+  background-color: #e2e8f0;
+  margin: 0 16px;
+  flex-shrink: 0;
+}
+
+.showcase-search-btn {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 9999px !important;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 12px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.showcase-search-btn:hover {
+  background-color: #1d4ed8 !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+}
+
+/* ----------------------------------------------------------------
+   SHOWCASE SEARCH BAR — Responsive (Small Screens)
+   ---------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .showcase-search-bar {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 16px;
+    padding: 8px;
+    gap: 4px;
+  }
+
+  .showcase-search-field {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+
+  .showcase-search-divider {
+    width: auto;
+    height: 1px;
+    margin: 2px 8px;
+  }
+
+  .showcase-search-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 4px;
+    border-radius: 10px !important;
+    padding: 12px 24px;
+    text-align: center;
+  }
+}

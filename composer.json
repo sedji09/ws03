@@ -1,0 +1,16 @@
+{
+    "name": "sedji09/ws03",
+    "description": "Jobseeker Project",
+    "author": [
+        {
+            "name": "Seigi Pascual",
+            "email": "seigipascual09@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
