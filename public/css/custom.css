@@ -1,7 +1,7 @@
 /* ============================================================
    JOBEES — CUSTOM STYLESHEET
    Pangalan ng Student: ______________________________
-   Theme Name:          ______________________________ // Anong style would best describe this stylesheet
+   Theme Name:          Free Resume Builder — Calm Productivity
    ============================================================ */
 
 /* --- Google Fonts Import (optional) ---
@@ -24,38 +24,52 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --color-header: #1a2f5e;
-  /* Header at navigation bar */
-  --color-logo: #FFFFFF;
-  /* Kulay ng logo */
-  --color-accent: #2563eb;
-  /* "Post a Job" button at mga highlight */
-  --color-page-bg: #f8fafc;
-  /* Background ng buong page */
-  --color-card-bg: #FFFFFF;
-  /* Background ng mga card/box */
-  --color-heading: #FFFFFF;
-  /* Kulay ng heading */
-  --color-title: #1e293b;
-  /* Kulay ng title */
-  --color-heading-alt: #1a2f5e;
-  /* Alternatibong kulay para sa mga heading */
-  --color-body-text: #475569;
-  /* Regular na body text */
-  --color-link: #FAFAFA;
-  /* Mga clickable na links */
-  --color-show-all-btn: #2563eb;
-  /* Kulay ng "Show All Jobs" button */
-  --color-tag-bg: #FFFFFF;
-  /* Background ng mga tag/badge */
-  --color-tag-text: #1e293b;
-  /* Text ng mga tag/badge */
-  --color-footer: #111827;
-  /* Footer background */
-  --showcase-overlay: rgba(0, 0, 0, 0.52);
-  /* Hero banner overlay
-                                               0.0 = transparent
-                                               0.9 = halos itim */
+  /* ── Resume.io Brand Tokens ─────────────────────────── */
+  --color-page-graphite: #0f141e;
+  --color-slate-text: #1e2532;
+  --color-midtone-gray: #656e83;
+  --color-soft-gray: #828ba2;
+  --color-hover-gray: #9fa6bb;
+  --color-light-steel: #d9deeb;
+  --color-faded-blueprint: #f1f2ff;
+  --color-whisper-white: #f7f9fc;
+  --color-pure-white: #ffffff;
+  --color-action-blue: #1a91f0;
+  --color-recruiter-blue: #1a1c6a;
+  --color-trustpilot-green: #00b67a;
+  --color-error-red: #fb4458;
+
+  /* ── Semantic Color Tokens ──────────────────────────── */
+  --color-header: var(--color-page-graphite);
+  /* #0f141e — Navbar/Header */
+  --color-logo: var(--color-pure-white);
+  /* #ffffff — Kulay ng logo */
+  --color-accent: var(--color-action-blue);
+  /* #1a91f0 — Buttons, highlights */
+  --color-page-bg: var(--color-whisper-white);
+  /* #f7f9fc — Page background */
+  --color-card-bg: var(--color-pure-white);
+  /* #ffffff — Background ng mga card/box */
+  --color-heading: var(--color-pure-white);
+  /* #ffffff — Heading sa dark sections */
+  --color-title: var(--color-page-graphite);
+  /* #0f141e — Dark page titles */
+  --color-heading-alt: var(--color-slate-text);
+  /* #1e2532 — Section headings */
+  --color-body-text: var(--color-midtone-gray);
+  /* #656e83 — Regular na body text */
+  --color-link: var(--color-pure-white);
+  /* #ffffff — Mga navbar/footer links */
+  --color-show-all-btn: var(--color-action-blue);
+  /* #1a91f0 — Show All button */
+  --color-tag-bg: var(--color-faded-blueprint);
+  /* #f1f2ff — Badge backgrounds */
+  --color-tag-text: var(--color-action-blue);
+  /* #1a91f0 — Badge text */
+  --color-footer: var(--color-page-graphite);
+  /* #0f141e — Footer background */
+  --showcase-overlay: rgba(15, 20, 30, 0.60);
+  /* Hero overlay (Graphite @ 60%) */
 }
 
 
@@ -74,9 +88,9 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --font-heading: 'Inter', 'Georgia', serif;
+  --font-heading: 'TT Commons', 'Inter', ui-sans-serif, system-ui, sans-serif;
   /* Para sa mga title at heading */
-  --font-body: 'Inter', 'Arial', sans-serif;
+  --font-body: 'TT Commons', 'Inter', ui-sans-serif, system-ui, sans-serif;
   /* Para sa regular na text */
 }
 
@@ -223,16 +237,22 @@ button,
 }
 
 .post-job-btn {
-  background-color: #0d9488 !important;
-  color: #fff !important;
+  background: linear-gradient(135deg, #38bdf8, #2563eb) !important;
+  color: var(--color-pure-white) !important;
   font-weight: 600;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease !important;
+  border: none !important;
 }
 
 .post-job-btn:hover {
-  background-color: #0f766e !important;
-  color: #fff !important;
+  background: linear-gradient(135deg, #38bdf8, #2563eb) !important;
+  filter: brightness(1.15);
+  color: var(--color-pure-white) !important;
   text-decoration: none;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.4) !important;
+  transform: translateY(-2px);
   opacity: 1;
 }
 
@@ -242,25 +262,29 @@ button,
 
 /* "Recent Jobs" heading */
 .recent-jobs-heading {
-  color: var(--color-heading-alt) !important;
-  border-color: #e2e8f0 !important;
-  font-size: 1.6rem !important;
-  letter-spacing: -0.01em;
+  background-color: var(--color-action-blue) !important;
+  color: var(--color-pure-white) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 10px rgba(26, 145, 240, 0.25) !important;
 }
 
 /* Details button */
 a.bg-indigo-100 {
-  background-color: #f1f5f9 !important;
-  color: var(--color-accent) !important;
-  border-color: #e2e8f0 !important;
-  font-weight: 600 !important;
-  font-size: 0.875rem !important;
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
+  border-color: transparent !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
   transition: background-color 0.2s ease, color 0.2s ease !important;
 }
 
 a.bg-indigo-100:hover {
-  background-color: var(--color-accent) !important;
-  color: #fff !important;
+  background-color: #7dd3fc !important;
+  color: #026aa2 !important;
   text-decoration: none;
   opacity: 1;
 }
@@ -268,20 +292,44 @@ a.bg-indigo-100:hover {
 
 
 .show-all-btn {
-  color: var(--color-show-all-btn) !important;
+  display: block !important;
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  text-align: center;
+  color: var(--color-action-blue) !important;
+  background-color: #f8fafc !important;
+  border: 1px solid var(--color-action-blue) !important;
+  border-radius: 8px !important;
   font-weight: 600;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .show-all-btn:hover {
-  opacity: 0.75;
+  background-color: #e0f2fe !important;
   text-decoration: none;
+  opacity: 1;
 }
 
 .apply-btn {
-  background-color: var(--color-accent) !important;
-  color: var(--color-link) !important;
-  box-shadow: var(--card-shadow) !important;
+  background-color: var(--color-action-blue) !important;
+  color: var(--color-pure-white) !important;
+  font-weight: 500 !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+}
+
+.cancel-btn {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.cancel-btn:hover {
+  background-color: #cbd5e1 !important;
+  /* medyo dark na kulay */
+  text-decoration: none !important;
+  opacity: 1 !important;
 }
 
 .overlay {
@@ -334,6 +382,12 @@ a:hover {
   opacity: 0.85;
 }
 
+/* Walang underline sa button links */
+a.bg-blue-500:hover,
+a.bg-red-500:hover {
+  text-decoration: none !important;
+}
+
 /* Walang underline sa footer links */
 footer a:hover {
   text-decoration: none;
@@ -346,6 +400,16 @@ select,
 textarea {
   border-color: #cbd5e1 !important;
   border-radius: var(--border-radius) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-action-blue) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(26, 145, 240, 0.2) !important;
+  /* using action-blue with opacity for ring */
 }
 
 /* Kulay ng success badge */

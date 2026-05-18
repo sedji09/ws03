@@ -1,14 +1,14 @@
 <!-- Footer -->
-<footer class="bg-blue-900 mt-8">
+<footer class="bg-blue-900 mt-auto">
 
     <!-- Main columns -->
-    <div class="max-w-6xl mx-auto px-10 pt-10 pb-8 flex flex-wrap gap-12">
+    <div class="max-w-6xl mx-auto px-10 pt-10 pb-8 flex flex-wrap gap-12 mb-0">
 
         <!-- Brand -->
         <div class="flex-1 min-w-40">
             <p class="text-xl font-bold text-white mb-1">Prosple</p>
             <p class="text-sm text-blue-300 leading-relaxed">
-                A job board for students<br>and fresh graduates.
+                An internship board for students and fresh graduates.
             </p>
         </div>
 
@@ -26,7 +26,8 @@
         <div class="flex-1 min-w-32">
             <p class="text-xs font-bold text-white uppercase tracking-widest mb-3">For Employers</p>
             <ul class="space-y-2 list-none p-0 m-0">
-                <li><a href="#" class="text-sm text-blue-300 no-underline hover:text-white">Post a Job</a></li>
+                <li><a href="/listings/create" class="text-sm text-blue-300 no-underline hover:text-white">Post a
+                        Job</a></li>
                 <li><a href="#" class="text-sm text-blue-300 no-underline hover:text-white">Browse Candidates</a></li>
                 <li><a href="#" class="text-sm text-blue-300 no-underline hover:text-white">Employer FAQ</a></li>
             </ul>
@@ -38,7 +39,8 @@
             <ul class="space-y-2 list-none p-0 m-0">
                 <li><a href="/listings" class="text-sm text-blue-300 no-underline hover:text-white">Browse Jobs</a></li>
                 <li><a href="#" class="text-sm text-blue-300 no-underline hover:text-white">Resume Tips</a></li>
-                <li><a href="/register" class="text-sm text-blue-300 no-underline hover:text-white">Create Account</a>
+                <li><a href="/auth/register" class="text-sm text-blue-300 no-underline hover:text-white">Create
+                        Account</a>
                 </li>
             </ul>
         </div>
@@ -78,6 +80,9 @@
 
 </footer>
 
+</body>
+
+</html>
 </body>
 
 </html>
